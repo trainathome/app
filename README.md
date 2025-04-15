@@ -27,14 +27,14 @@ npm install
 
 ### Available Scripts
 
-- `npm start` - Start the Expo development server
+- `npm run start` - Start the Expo development server
 - `npm run android` - Start the app on Android
 - `npm run ios` - Start the app on iOS
 - `npm run web` - Start the app in web browser
 - `npm run lint` - Run ESLint to check code quality
 - `npm run lint:fix` - Fix ESLint issues automatically
 - `npm run format` - Format code using Prettier
-- `npm test` - Run tests
+- `npm run test` - Run tests
 
 ### Code Quality
 
