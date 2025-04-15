@@ -1,0 +1,10 @@
+node_modules/
+android/
+ios/
+build/
+dist/
+.expo/
+.vscode/
+.gitignore
+.eslintrc.js
+.prettierrc
