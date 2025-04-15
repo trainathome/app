@@ -8,3 +8,7 @@ dist/
 .gitignore
 .eslintrc.js
 .prettierrc
+metro.config.js
+babel.config.js
+global.css
+tailwind.config.js

@@ -12,6 +12,8 @@ import 'react-native-reanimated';
 
 import { useColorScheme } from '@/components/useColorScheme';
 
+import '../global.css';
+
 export { ErrorBoundary } from 'expo-router';
 
 export const unstable_settings = {
