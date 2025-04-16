@@ -4,7 +4,8 @@ module.exports = {
   rules: {
     'prettier/prettier': ['error', {
       singleQuote: true,
-      jsxSingleQuote: true
+      jsxSingleQuote: true,
+      endOfLine: 'auto',
     }]
   },
 };
