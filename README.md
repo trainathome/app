@@ -13,12 +13,14 @@ A React Native application built with Expo.
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/trainathome/app.git
 cd app
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
@@ -39,6 +41,7 @@ npm install
 ### Code Quality
 
 This project uses:
+
 - ESLint for code linting
 - Prettier for code formatting
 - TypeScript for type safety
