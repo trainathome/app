@@ -1,58 +1,45 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
+import { Home, Search, User } from 'lucide-react-native';
+import { Tabs } from 'expo-router';
 import React from 'react';
-import { Pressable } from 'react-native';
 
-import { useClientOnlyValue } from '@/components/useClientOnlyValue';
-import { useColorScheme } from '@/components/useColorScheme';
-import Colors from '@/constants/Colors';
+import { useTheme, useClientOnlyValue } from '@/hooks';
 
-// You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+function TabBarIcon(props: { icon: React.ElementType; color: string }) {
+  const Icon = props.icon;
+  return <Icon size={20} color={props.color} />;
 }
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const { colors } = useTheme();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: colors.tint,
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
+        headerShown: useClientOnlyValue.useClientOnlyValue(false, true),
       }}
     >
       <Tabs.Screen
         name='index'
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name='code' color={color} />,
-          headerRight: () => (
-            <Link href='/modal' asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name='info-circle'
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          title: 'Inicio',
+          tabBarIcon: ({ color }) => <TabBarIcon icon={Home} color={color} />,
         }}
       />
       <Tabs.Screen
-        name='two'
+        name='search'
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name='code' color={color} />,
+          title: 'Buscar',
+          tabBarIcon: ({ color }) => <TabBarIcon icon={Search} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name='profile'
+        options={{
+          title: 'Perfil',
+          tabBarIcon: ({ color }) => <TabBarIcon icon={User} color={color} />,
         }}
       />
     </Tabs>

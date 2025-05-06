@@ -1,13 +1,16 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
-import { useColorScheme } from '~/lib/useColorScheme';
+import { useTheme } from '~/hooks/useTheme';
 
-export function Soccer(props: React.ComponentProps<typeof Svg>) {
-  const { colorScheme } = useColorScheme();
-  const color = colorScheme === 'dark' ? '#ffffff' : '#000000';
+export function Soccer({
+  size = 24,
+  ...props
+}: React.ComponentProps<typeof Svg> & { size?: number }) {
+  const { isDark } = useTheme();
+  const color = isDark ? '#ffffff' : '#000000';
 
   return (
-    <Svg width='24' height='24' viewBox='0 0 24 24' fill='none' {...props}>
+    <Svg width={size} height={size} viewBox='0 0 24 24' fill='none' {...props}>
       <Path
         fillRule='evenodd'
         clipRule='evenodd'

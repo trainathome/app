@@ -1,25 +1,19 @@
 import type { TextRef, ViewRef } from '@rn-primitives/types';
 import * as React from 'react';
 import { Text, type TextProps, View, type ViewProps } from 'react-native';
-import { TextClassContext } from '~/components/ui/text';
 import { cn } from '~/lib/utils';
+import { TextClassContext } from '~/components/ui/text';
 
-interface CardProps extends ViewProps {
-  bottomColor?: string;
-}
-
-const Card = React.forwardRef<ViewRef, CardProps>(
-  ({ className, bottomColor, ...props }, ref) => (
+const Card = React.forwardRef<ViewRef, ViewProps>(
+  ({ className, ...props }, ref) => (
     <View
       ref={ref}
       className={cn(
-        'rounded-lg border border-border bg-card shadow-sm shadow-foreground/10 overflow-hidden',
+        'rounded-lg border border-border bg-card shadow-sm shadow-foreground/10',
         className
       )}
-    >
-      <View className='p-6' {...props} />
-      {bottomColor && <View className={cn('w-full h-1', bottomColor)} />}
-    </View>
+      {...props}
+    />
   )
 );
 Card.displayName = 'Card';
@@ -35,32 +29,18 @@ const CardHeader = React.forwardRef<ViewRef, ViewProps>(
 );
 CardHeader.displayName = 'CardHeader';
 
-interface CardTitleProps extends TextProps {
-  icon?: React.ReactNode;
-  iconClassName?: string;
-}
-
-const CardTitle = React.forwardRef<TextRef, CardTitleProps>(
-  ({ className, icon, iconClassName, ...props }, ref) => (
-    <View className='flex flex-row items-end gap-x-2 mb-4'>
-      {icon && (
-        <View className={cn('flex justify-center', iconClassName)}>
-          {React.cloneElement(icon as React.ReactElement, {
-            className: 'h-4 w-4 text-black dark:text-white',
-          })}
-        </View>
+const CardTitle = React.forwardRef<TextRef, TextProps>(
+  ({ className, ...props }, ref) => (
+    <Text
+      role='heading'
+      aria-level={3}
+      ref={ref}
+      className={cn(
+        'text-2xl text-card-foreground font-semibold leading-none tracking-tight',
+        className
       )}
-      <Text
-        role='heading'
-        aria-level={3}
-        ref={ref}
-        className={cn(
-          'text-sm text-card-foreground font-semibold leading-none tracking-tight',
-          className
-        )}
-        {...props}
-      />
-    </View>
+      {...props}
+    />
   )
 );
 CardTitle.displayName = 'CardTitle';
@@ -79,7 +59,7 @@ CardDescription.displayName = 'CardDescription';
 const CardContent = React.forwardRef<ViewRef, ViewProps>(
   ({ className, ...props }, ref) => (
     <TextClassContext.Provider value='text-card-foreground'>
-      <View ref={ref} className={cn('p-6', className)} {...props} />
+      <View ref={ref} className={cn('p-6 pt-0', className)} {...props} />
     </TextClassContext.Provider>
   )
 );
