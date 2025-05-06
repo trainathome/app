@@ -1,0 +1,9 @@
+{
+  "common": {
+    "welcome": "Bienvenido"
+  },
+  "home": {
+    "title": "Pantalla Principal",
+    "description": "Esta es la pantalla principal de nuestra aplicación"
+  }
+}

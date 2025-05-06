@@ -1,6 +1,13 @@
 {
   "aliases": {
     "components": "~/components",
-    "lib": "~/lib"
+    "lib": "~/lib",
+    "hooks": "~/hooks",
+    "constants": "~/constants",
+    "utils": "~/utils",
+    "types": "~/types",
+    "assets": "~/assets",
+    "styles": "~/styles",
+    "config": "~/config"
   }
 }
