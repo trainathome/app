@@ -5,3 +5,4 @@ export * from './ChartNoAxesColumn';
 export * from './Moon';
 export * from './Sun';
 export * from './Info';
+export * from './MapPin';

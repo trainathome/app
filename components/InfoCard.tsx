@@ -1,5 +1,4 @@
 import { View } from 'react-native';
-
 import { Text } from '~/components/Themed';
 import { Info } from '~/lib/icons';
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui';

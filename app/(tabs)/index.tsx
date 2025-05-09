@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 import { Text, View } from '@/components/Themed';
 import { ActivityCard } from '@/components/ActivityCard';
 import { InfoCard } from '@/components/InfoCard';
+import { LocationCard } from '@/components/LocationCard';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { LanguageToggle } from '@/components/LanguageToggle';
 import { useLanguage } from '@/hooks/useLanguage';
@@ -37,6 +38,12 @@ export default function HomeScreen() {
         <InfoCard
           title='Información'
           description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.'
+        />
+        <LocationCard
+          location={{
+            latitude: 28.0313225,
+            longitude: -15.491732,
+          }}
         />
       </View>
     </View>
