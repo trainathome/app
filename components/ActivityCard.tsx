@@ -1,24 +1,24 @@
-import { View, Text } from '~/components/Themed';
-import { Avatar, AvatarFallback, AvatarImage } from '~/components/ui/avatar';
+import { Text, View } from '~/components/Themed';
 import {
   Badge,
-  Separator,
   Card,
   CardContent,
   CardHeader,
+  Separator,
 } from '~/components/ui';
-import { ChartNoAxesColumn, Clock, LogIn, Soccer } from '~/lib/icons';
+import { Avatar, AvatarFallback, AvatarImage } from '~/components/ui/avatar';
+import { Sport, getSportColor } from '~/constants/Sports';
 import { useTheme } from '~/hooks/useTheme';
+import { ChartNoAxesColumn, Clock, Layers, Soccer } from '~/lib/icons';
 
 interface ActivityCardProps {
-  activityType: string;
-  activitySubtype: string;
-  date: string;
-  time: string;
-  duration: string;
-  level: string;
-  borderColor: string;
-  organizer: {
+  readonly activityType: Sport;
+  readonly activitySubtype: string;
+  readonly date: string;
+  readonly time: string;
+  readonly duration: string;
+  readonly level: string;
+  readonly organizer: {
     name: string;
     username: string;
     avatarUrl: string;
@@ -32,18 +32,21 @@ export function ActivityCard({
   time,
   duration,
   level,
-  borderColor,
   organizer,
 }: ActivityCardProps) {
-  const { colors } = useTheme();
+  const { colors, isDark } = useTheme();
+  const sportColor = getSportColor(activityType);
+
   return (
-    <Card className={`w-full max-w-sm border-b-4 border-${borderColor}`}>
+    <Card
+      style={{ borderBottomWidth: 4, borderBottomColor: sportColor.primary }}
+    >
       <CardHeader>
         <View className='flex flex-row justify-between items-center'>
           <View className='flex flex-row items-center gap-x-2'>
             <Soccer size={18} />
             <View className='flex flex-row items-center'>
-              <Text className='font-medium'>{activityType}</Text>
+              <Text className='font-bold'>{activityType}</Text>
               <Separator
                 orientation='vertical'
                 className='h-4 w-[2px] mx-2'
@@ -54,19 +57,31 @@ export function ActivityCard({
           </View>
           <Badge
             variant='secondary'
-            className='flex flex-row items-center gap-x-2'
+            className='flex flex-row items-center gap-x-2 px-2 py-1 bg-gray-400 dark:bg-white'
           >
-            <LogIn size={18} className='rotate-90' />
-            <Text className='text-sm uppercase'>ABIERTA</Text>
+            <Layers size={18} color={isDark ? '#000000' : '#ffffff'} />
+            <Text
+              className='text-sm uppercase'
+              color={isDark ? '#000000' : '#ffffff'}
+            >
+              ABIERTA
+            </Text>
           </Badge>
         </View>
       </CardHeader>
+      <View className='px-6'>
+        <Separator
+          orientation='horizontal'
+          className='mb-6'
+          style={{ backgroundColor: colors.separator }}
+        />
+      </View>
       <CardContent>
         <View className='flex flex-row items-center justify-between'>
           <View className='w-[50%] flex flex-row items-center'>
             <View className='flex-1 items-center gap-y-1'>
-              <Text className='text-xl'>{date}</Text>
-              <Text>{time}</Text>
+              <Text className='text-xl font-bold'>{date}</Text>
+              <Text className='font-bold'>{time}</Text>
             </View>
             <View className='flex-1 items-center gap-y-1'>
               <Avatar

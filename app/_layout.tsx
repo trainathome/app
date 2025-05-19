@@ -8,8 +8,8 @@ import { useEffect, useState } from 'react';
 import { Platform } from 'react-native';
 import 'react-native-reanimated';
 
-import { useTheme } from '~/hooks/useTheme';
 import { CustomDarkTheme, CustomLightTheme } from '~/constants/NavigationTheme';
+import { useTheme } from '~/hooks/useTheme';
 
 import '../global.css';
 
@@ -61,6 +61,13 @@ function RootLayoutNav({ isDark }: { readonly isDark: boolean }) {
     <ThemeProvider value={isDark ? CustomDarkTheme : CustomLightTheme}>
       <Stack>
         <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+        <Stack.Screen
+          name='activity-detail/[activityId]'
+          options={{
+            headerShown: false,
+            headerBackTitle: 'Atrás',
+          }}
+        />
       </Stack>
     </ThemeProvider>
   );

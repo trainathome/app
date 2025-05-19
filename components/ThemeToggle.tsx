@@ -1,13 +1,13 @@
-import { Moon, Sun } from '~/lib/icons';
-import { useTheme } from '~/hooks/useTheme';
 import { Button } from '~/components/ui';
+import { useTheme } from '~/hooks/useTheme';
+import { Moon, Sun } from '~/lib/icons';
 
 export function ThemeToggle() {
   const { isDark, colors, toggleColorScheme } = useTheme();
 
   return (
     <Button
-      variant='ghost'
+      variant='default'
       size='icon'
       onPress={toggleColorScheme}
       className='rounded-full'

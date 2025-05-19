@@ -25,6 +25,7 @@ export default function TabLayout() {
         name='index'
         options={{
           title: 'Inicio',
+          headerShown: false,
           tabBarIcon: ({ color }) => <TabBarIcon icon={Home} color={color} />,
         }}
       />
@@ -32,6 +33,7 @@ export default function TabLayout() {
         name='search'
         options={{
           title: 'Buscar',
+          headerShown: false,
           tabBarIcon: ({ color }) => <TabBarIcon icon={Search} color={color} />,
         }}
       />
@@ -39,6 +41,7 @@ export default function TabLayout() {
         name='profile'
         options={{
           title: 'Perfil',
+          headerShown: false,
           tabBarIcon: ({ color }) => <TabBarIcon icon={User} color={color} />,
         }}
       />
