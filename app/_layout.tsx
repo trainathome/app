@@ -3,8 +3,7 @@ import { ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Platform } from 'react-native';
 import 'react-native-reanimated';
 
@@ -21,6 +20,27 @@ export const unstable_settings = {
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+
+const RootLayoutNav = memo(function RootLayoutNav({
+  isDark,
+}: {
+  readonly isDark: boolean;
+}) {
+  return (
+    <ThemeProvider value={isDark ? CustomDarkTheme : CustomLightTheme}>
+      <Stack>
+        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+        <Stack.Screen
+          name='activity-detail/[activityId]'
+          options={{
+            headerShown: false,
+            headerBackTitle: 'Atrás',
+          }}
+        />
+      </Stack>
+    </ThemeProvider>
+  );
+});
 
 export default function RootLayout() {
   const [isReady, setIsReady] = useState(false);
@@ -54,21 +74,4 @@ export default function RootLayout() {
   }
 
   return <RootLayoutNav isDark={isDark} />;
-}
-
-function RootLayoutNav({ isDark }: { readonly isDark: boolean }) {
-  return (
-    <ThemeProvider value={isDark ? CustomDarkTheme : CustomLightTheme}>
-      <Stack>
-        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-        <Stack.Screen
-          name='activity-detail/[activityId]'
-          options={{
-            headerShown: false,
-            headerBackTitle: 'Atrás',
-          }}
-        />
-      </Stack>
-    </ThemeProvider>
-  );
 }

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Text, View } from '~/components/Themed';
 import { Card, CardContent, CardHeader, Separator } from '~/components/ui';
 import { Avatar, AvatarFallback, AvatarImage } from '~/components/ui/avatar';
@@ -5,7 +6,7 @@ import { useTheme } from '~/hooks/useTheme';
 import { ActivitySquareCardProps, getSportColor } from '~/interfaces';
 import { ChartNoAxesColumn, Clock, Soccer } from '~/lib/icons';
 
-export function ActivitySquareCard({
+export const ActivitySquareCard = memo(function ActivitySquareCard({
   sport,
   date,
   time,
@@ -115,4 +116,4 @@ export function ActivitySquareCard({
       </CardContent>
     </Card>
   );
-}
+});

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Text, View } from '~/components/Themed';
 import {
   Badge,
@@ -10,7 +11,8 @@ import { Avatar, AvatarFallback, AvatarImage } from '~/components/ui/avatar';
 import { useTheme } from '~/hooks/useTheme';
 import { ActivityCardProps, getSportColor } from '~/interfaces';
 import { ChartNoAxesColumn, Clock, Layers, Soccer } from '~/lib/icons';
-export function ActivityCard({
+
+export const ActivityCard = memo(function ActivityCard({
   activityType,
   activitySubtype,
   date,
@@ -105,4 +107,4 @@ export function ActivityCard({
       </CardContent>
     </Card>
   );
-}
+});
