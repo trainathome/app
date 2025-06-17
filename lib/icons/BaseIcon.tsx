@@ -1,16 +1,8 @@
-import { LucideIcon } from 'lucide-react-native';
 import { View } from 'react-native';
 import { useTheme } from '~/hooks/useTheme';
+import { BaseIconProps } from '~/interfaces';
 import { cn } from '~/lib/utils';
 import { iconWithClassName } from './iconWithClassName';
-
-export interface BaseIconProps {
-  icon: LucideIcon;
-  className?: string;
-  size?: number;
-  color?: string;
-  [key: string]: any;
-}
 
 export function BaseIcon({
   icon: Icon,

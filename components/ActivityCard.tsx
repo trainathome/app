@@ -7,24 +7,9 @@ import {
   Separator,
 } from '~/components/ui';
 import { Avatar, AvatarFallback, AvatarImage } from '~/components/ui/avatar';
-import { Sport, getSportColor } from '~/constants/Sports';
 import { useTheme } from '~/hooks/useTheme';
+import { ActivityCardProps, getSportColor } from '~/interfaces';
 import { ChartNoAxesColumn, Clock, Layers, Soccer } from '~/lib/icons';
-
-interface ActivityCardProps {
-  readonly activityType: Sport;
-  readonly activitySubtype: string;
-  readonly date: string;
-  readonly time: string;
-  readonly duration: string;
-  readonly level: string;
-  readonly organizer: {
-    name: string;
-    username: string;
-    avatarUrl: string;
-  };
-}
-
 export function ActivityCard({
   activityType,
   activitySubtype,
@@ -33,7 +18,7 @@ export function ActivityCard({
   duration,
   level,
   organizer,
-}: ActivityCardProps) {
+}: Readonly<ActivityCardProps>) {
   const { colors, isDark } = useTheme();
   const sportColor = getSportColor(activityType);
 

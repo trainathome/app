@@ -1,6 +1,5 @@
 import { useRouter } from 'expo-router';
 import React from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
 import {
   Gesture,
   GestureDetector,
@@ -9,12 +8,7 @@ import {
   GestureUpdateEvent,
   PanGestureHandlerEventPayload,
 } from 'react-native-gesture-handler';
-
-interface SwipeBackGestureProps {
-  readonly children: React.ReactNode;
-  readonly enabled?: boolean;
-  readonly style?: StyleProp<ViewStyle>;
-}
+import { SwipeBackGestureProps } from '~/interfaces';
 
 export function SwipeBackGesture({
   children,

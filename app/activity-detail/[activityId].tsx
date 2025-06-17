@@ -1,12 +1,12 @@
-import { Sport } from '@/constants/Sports';
 import { useLocalSearchParams } from 'expo-router';
 import { ScrollView, View } from 'react-native';
 import { useTheme } from '~/hooks/useTheme';
+import { Sport, Team } from '~/interfaces';
 import { ActivityCard } from '../../components/ActivityCard';
 import { BackButton } from '../../components/BackButton';
 import { InfoCard } from '../../components/InfoCard';
 import { LocationCard } from '../../components/LocationCard';
-import { ParticipantsCard, Team } from '../../components/ParticipantsCard';
+import { ParticipantsCard } from '../../components/ParticipantsCard';
 import { SettingsButton } from '../../components/SettingsButton';
 import { ShareButton } from '../../components/ShareButton';
 import { Text } from '../../components/Themed';

@@ -1,15 +1,14 @@
 import { View } from 'react-native';
 import { Text } from '~/components/Themed';
 import { Card, CardContent, CardHeader } from '~/components/ui';
+import { LocationCardProps } from '~/interfaces';
 import { MapPin } from '~/lib/icons';
 
-interface LocationCardProps {
-  readonly location: string;
-  readonly address: string;
-  readonly city: string;
-}
-
-export function LocationCard({ location, address, city }: LocationCardProps) {
+export function LocationCard({
+  location,
+  address,
+  city,
+}: Readonly<LocationCardProps>) {
   return (
     <Card className='w-full max-w-xl self-center mb-4'>
       <CardHeader>

@@ -10,27 +10,10 @@ import {
   Separator,
 } from '~/components/ui';
 import { useTheme } from '~/hooks/useTheme';
+import { ParticipantsCardProps } from '~/interfaces';
 import { Users } from '~/lib/icons';
 
-interface Participant {
-  id: string;
-  name: string;
-  avatarUrl: string;
-}
-
-export interface Team {
-  id: string;
-  name: string;
-  participants: Participant[];
-  maxParticipants: number;
-  minParticipants: number;
-}
-
-interface ParticipantsCardProps {
-  readonly teams: Team[];
-}
-
-export function ParticipantsCard({ teams }: ParticipantsCardProps) {
+export function ParticipantsCard({ teams }: Readonly<ParticipantsCardProps>) {
   const { isDark, colors } = useTheme();
   return (
     <Card className='w-full max-w-xl self-center mb-4'>
