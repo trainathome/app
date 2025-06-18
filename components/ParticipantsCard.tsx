@@ -77,7 +77,6 @@ export function ParticipantsCard({ teams }: ParticipantsCardProps) {
                     {team.participants.length}
                   </Text>
                   <Text className='text-lg'>
-                    {' '}
                     / {team.minParticipants}-{team.maxParticipants}
                   </Text>
                 </Text>
