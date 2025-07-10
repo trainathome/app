@@ -1,26 +1,19 @@
 import { Text as DefaultText, View as DefaultView } from 'react-native';
 import { useTheme } from '~/hooks/useTheme';
-
-type ThemeProps = {
-  lightColor?: string;
-  darkColor?: string;
-};
-
-type ThemedTextProps = ThemeProps & DefaultText['props'];
-type ThemedViewProps = ThemeProps & DefaultView['props'];
+import { ThemedTextProps, ThemedViewProps } from '~/interfaces';
 
 export function Text(props: ThemedTextProps) {
-  const { style, lightColor, darkColor, ...otherProps } = props;
+  const { style, color, ...otherProps } = props;
   const { colors } = useTheme();
-  const color = lightColor ?? darkColor ?? colors.textPrimary;
+  const textColor = color ?? colors.textPrimary;
 
-  return <DefaultText style={[{ color }, style]} {...otherProps} />;
+  return <DefaultText style={[{ color: textColor }, style]} {...otherProps} />;
 }
 
 export function View(props: ThemedViewProps) {
-  const { style, lightColor, darkColor, ...otherProps } = props;
+  const { style, color, ...otherProps } = props;
   const { colors } = useTheme();
-  const backgroundColor = lightColor ?? darkColor ?? colors.background;
+  const backgroundColor = color ?? colors.surface;
 
   return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
 }

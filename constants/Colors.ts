@@ -33,7 +33,7 @@ const darkColors = {
   surface: '#23272F',
   textPrimary: '#F3F4F6',
   textSecondary: '#9CA3AF',
-  border: '#23272F',
+  border: '#F3F4F6',
   primary: '#60A5FA',
   primaryText: '#181A20',
   secondary: '#2D333B',
