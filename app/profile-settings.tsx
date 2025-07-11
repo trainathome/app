@@ -77,7 +77,7 @@ export default function ProfileSettingsScreen() {
                 value={name}
                 onChangeText={setName}
                 placeholder='Nombre'
-                className='w-full border-2 border-black dark:text-white dark:border-white placeholder:text-gray-500'
+                className='w-full'
               />
             </View>
 
@@ -89,7 +89,7 @@ export default function ProfileSettingsScreen() {
                 placeholder='email@com'
                 keyboardType='email-address'
                 autoCapitalize='none'
-                className='w-full border-2 border-black dark:text-white dark:border-white placeholder:text-gray-500'
+                className='w-full'
               />
             </View>
           </CardContent>
