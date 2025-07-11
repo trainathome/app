@@ -25,7 +25,7 @@ export function ShareButton({
       onPress={onShare}
       {...props}
     >
-      <Share size={18} color={isDark ? '#ffffff' : '#000000'} />
+      <Share size={18} color={isDark ? 'white' : 'black'} />
     </Button>
   );
 }
