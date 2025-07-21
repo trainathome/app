@@ -1,15 +1,10 @@
 {
-  "common": {
-    "welcome": "Bienvenido"
-  },
   "home": {
     "title": "Pantalla Principal",
     "description": "Esta es la pantalla principal de nuestra aplicación"
   },
   "auth": {
     "signInOrRegister": "Inicia sesión o regístrate",
-    "signIn": "Iniciar sesión",
-    "register": "Registrarse",
     "continueWithEmail": "Continuar con email",
     "continueWithGoogle": "Continuar con Google",
     "continueWithApple": "Continuar con Apple",
@@ -22,21 +17,14 @@
     "registrationForm": "¿Cómo te llamas?",
     "namePlaceholder": "Introduce tu nombre...",
     "completeRegistration": "Completar registro",
-    "welcome": "¡Bienvenido!",
-    "accountCreated": "Tu cuenta ha sido creada correctamente",
-    "goToHome": "Ir al inicio",
     "invalidEmail": "El email introducido no es válido",
     "invalidCode": "El código introducido no es válido",
     "nameRequired": "El nombre es obligatorio",
     "errorGeneric": "Ha ocurrido un error. Inténtalo de nuevo.",
-    "codeExpired": "El código ha expirado. Solicita uno nuevo.",
     "codeResent": "Se ha enviado un nuevo código a tu email",
     "sending": "Enviando...",
     "verifying": "Verificando...",
     "creatingAccount": "Creando cuenta...",
-    "welcomeBack": "¡Bienvenido de vuelta!",
-    "loginSuccess": "Inicio de sesión exitoso",
-    "codeResentTitle": "Código reenviado",
-    "ok": "OK"
+    "codeResentTitle": "Código reenviado"
   }
 }

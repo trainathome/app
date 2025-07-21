@@ -1,15 +1,10 @@
 {
-  "common": {
-    "welcome": "Welcome"
-  },
   "home": {
     "title": "Home Screen",
     "description": "This is the home screen of our app"
   },
   "auth": {
     "signInOrRegister": "Sign in or register",
-    "signIn": "Sign in",
-    "register": "Register",
     "continueWithEmail": "Continue with email",
     "continueWithGoogle": "Continue with Google",
     "continueWithApple": "Continue with Apple",
@@ -22,21 +17,14 @@
     "registrationForm": "What's your name?",
     "namePlaceholder": "Enter your name...",
     "completeRegistration": "Complete registration",
-    "welcome": "Welcome!",
-    "accountCreated": "Your account has been created successfully",
-    "goToHome": "Go to home",
     "invalidEmail": "The email entered is not valid",
     "invalidCode": "The code entered is not valid",
     "nameRequired": "Name is required",
     "errorGeneric": "An error occurred. Please try again.",
-    "codeExpired": "The code has expired. Request a new one.",
     "codeResent": "A new code has been sent to your email",
     "sending": "Sending...",
     "verifying": "Verifying...",
     "creatingAccount": "Creating account...",
-    "welcomeBack": "Welcome back!",
-    "loginSuccess": "Login successful",
-    "codeResentTitle": "Code resent",
-    "ok": "OK"
+    "codeResentTitle": "Code resent"
   }
 }
