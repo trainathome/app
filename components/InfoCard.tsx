@@ -3,15 +3,14 @@ import { NativeSyntheticEvent, TextLayoutEventData, View } from 'react-native';
 import { Text } from '~/components/Themed';
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui';
 import { Button } from '~/components/ui/button';
+import { InfoCardProps } from '~/interfaces';
 import { Info } from '~/lib/icons';
 
-interface InfoCardProps {
-  readonly title: string;
-  readonly description: string;
-  readonly className?: string;
-}
-
-export function InfoCard({ title, description, className }: InfoCardProps) {
+export function InfoCard({
+  title,
+  description,
+  className,
+}: Readonly<InfoCardProps>) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [hasMoreLines, setHasMoreLines] = useState(false);
 

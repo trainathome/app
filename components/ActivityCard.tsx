@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Text, View } from '~/components/Themed';
 import {
   Badge,
@@ -7,25 +8,11 @@ import {
   Separator,
 } from '~/components/ui';
 import { Avatar, AvatarFallback, AvatarImage } from '~/components/ui/avatar';
-import { Sport, getSportColor } from '~/constants/Sports';
 import { useTheme } from '~/hooks/useTheme';
+import { ActivityCardProps, getSportColor } from '~/interfaces';
 import { ChartNoAxesColumn, Clock, Layers, Soccer } from '~/lib/icons';
 
-interface ActivityCardProps {
-  readonly activityType: Sport;
-  readonly activitySubtype: string;
-  readonly date: string;
-  readonly time: string;
-  readonly duration: string;
-  readonly level: string;
-  readonly organizer: {
-    name: string;
-    username: string;
-    avatarUrl: string;
-  };
-}
-
-export function ActivityCard({
+export const ActivityCard = memo(function ActivityCard({
   activityType,
   activitySubtype,
   date,
@@ -33,7 +20,7 @@ export function ActivityCard({
   duration,
   level,
   organizer,
-}: ActivityCardProps) {
+}: Readonly<ActivityCardProps>) {
   const { colors, isDark } = useTheme();
   const sportColor = getSportColor(activityType);
 
@@ -59,10 +46,10 @@ export function ActivityCard({
             variant='secondary'
             className='flex flex-row items-center gap-x-2 px-2 py-1 bg-gray-400 dark:bg-white'
           >
-            <Layers size={18} color={isDark ? '#000000' : '#ffffff'} />
+            <Layers size={18} color={isDark ? 'black' : 'white'} />
             <Text
               className='text-sm uppercase'
-              color={isDark ? '#000000' : '#ffffff'}
+              color={isDark ? 'black' : 'white'}
             >
               ABIERTA
             </Text>
@@ -120,4 +107,4 @@ export function ActivityCard({
       </CardContent>
     </Card>
   );
-}
+});

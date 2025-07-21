@@ -7,7 +7,7 @@ export function Soccer({
   ...props
 }: React.ComponentProps<typeof Svg> & { size?: number }) {
   const { isDark } = useTheme();
-  const color = isDark ? '#ffffff' : '#000000';
+  const color = isDark ? 'white' : 'black';
 
   return (
     <Svg width={size} height={size} viewBox='0 0 24 24' fill='none' {...props}>

@@ -17,7 +17,7 @@ export function SettingsButton({
       onPress={onPress}
       {...props}
     >
-      <Settings size={18} color={isDark ? '#ffffff' : '#000000'} />
+      <Settings size={18} color={isDark ? 'white' : 'black'} />
     </Button>
   );
 }

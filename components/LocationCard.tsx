@@ -5,18 +5,9 @@ import { View, Text } from '~/components/Themed';
 import { MapPinTitle, MapPin } from '~/lib/icons';
 import { Card, CardHeader, CardTitle, CardContent } from '~/components/ui';
 import { MapComponent } from './maps/MapComponent'; // Asegúrate de que la ruta sea correcta
+import { LocationCardProps } from '~/interfaces';
 
-interface LocationCardProps {
-  location: {
-    latitude: number;
-    longitude: number;
-    name: string;
-    address: string;
-    cityState: string;
-  };
-}
-
-export function LocationCard({ location }: LocationCardProps) {
+export function LocationCard({ location }: Readonly<LocationCardProps>) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [textContainerWidth, setTextContainerWidth] = useState(0);
   const [overflowStatus, setOverflowStatus] = useState({
@@ -38,7 +29,6 @@ export function LocationCard({ location }: LocationCardProps) {
     },
     [overflowStatus]
   );
-
   return (
     <Card className='w-full max-w-xl self-center mb-4'>
       <CardHeader>

@@ -1,12 +1,6 @@
 import { Text as DefaultText, View as DefaultView } from 'react-native';
 import { useTheme } from '~/hooks/useTheme';
-
-type ThemeProps = {
-  color?: string;
-};
-
-type ThemedTextProps = ThemeProps & DefaultText['props'];
-type ThemedViewProps = ThemeProps & DefaultView['props'];
+import { ThemedTextProps, ThemedViewProps } from '~/interfaces';
 
 export function Text(props: ThemedTextProps) {
   const { style, color, ...otherProps } = props;

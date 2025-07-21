@@ -44,9 +44,9 @@ const darkColors = {
   destructiveText: '#181A20',
   infoBackground: '#0EA5E9',
   infoText: '#F3F4F6',
-  tint: '#ffffff',
-  tabIconSelected: '#ffffff',
-  separator: '#2D333B',
+  tint: '#FFFFFF',
+  tabIconSelected: '#FFFFFF',
+  separator: '#FFFFFF',
 };
 
 export const Colors = {

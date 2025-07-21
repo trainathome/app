@@ -1,25 +1,14 @@
 import React from 'react';
 import { View } from 'react-native';
+import { AvatarGroupProps } from '~/interfaces';
 import { Text } from './Themed';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
-
-interface AvatarGroupParticipant {
-  id: string;
-  name: string;
-  avatarUrl: string;
-}
-
-interface AvatarGroupProps {
-  readonly participants: AvatarGroupParticipant[];
-  readonly maxVisible?: number;
-  readonly className?: string;
-}
 
 export function AvatarGroup({
   participants,
   maxVisible = 3,
   className = '',
-}: AvatarGroupProps) {
+}: Readonly<AvatarGroupProps>) {
   const visible = participants.slice(0, maxVisible);
   const extra = participants.length - maxVisible;
 
