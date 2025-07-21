@@ -34,7 +34,12 @@ const RootLayoutNav = memo(function RootLayoutNav({
           name='activity-detail/[activityId]'
           options={{
             headerShown: false,
-            headerBackTitle: 'Atrás',
+          }}
+        />
+        <Stack.Screen
+          name='profile-settings'
+          options={{
+            headerShown: false,
           }}
         />
       </Stack>

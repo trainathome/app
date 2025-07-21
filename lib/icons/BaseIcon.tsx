@@ -19,7 +19,7 @@ export function BaseIcon({
     <View className={cn('flex items-center justify-center', className)}>
       <Icon
         size={size}
-        color={color ?? (isDark ? '#ffffff' : '#000000')}
+        color={color ?? (isDark ? 'white' : 'black')}
         {...props}
       />
     </View>

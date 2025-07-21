@@ -15,7 +15,7 @@ export function BackButton({ className = '', ...props }) {
       onPress={() => router.back()}
       {...props}
     >
-      <ArrowLeft size={18} color={isDark ? '#ffffff' : '#000000'} />
+      <ArrowLeft size={18} color={isDark ? 'white' : 'black'} />
     </Button>
   );
 }

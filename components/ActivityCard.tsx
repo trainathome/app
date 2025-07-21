@@ -46,10 +46,10 @@ export const ActivityCard = memo(function ActivityCard({
             variant='secondary'
             className='flex flex-row items-center gap-x-2 px-2 py-1 bg-gray-400 dark:bg-white'
           >
-            <Layers size={18} color={isDark ? '#000000' : '#ffffff'} />
+            <Layers size={18} color={isDark ? 'black' : 'white'} />
             <Text
               className='text-sm uppercase'
-              color={isDark ? '#000000' : '#ffffff'}
+              color={isDark ? 'black' : 'white'}
             >
               ABIERTA
             </Text>
