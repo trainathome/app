@@ -7,15 +7,15 @@ import { memo, useEffect, useState } from 'react';
 import { Platform } from 'react-native';
 import 'react-native-reanimated';
 
-import { CustomDarkTheme, CustomLightTheme } from '~/constants/NavigationTheme';
-import { useTheme } from '~/hooks/useTheme';
+import { CustomDarkTheme, CustomLightTheme } from '@/constants/NavigationTheme';
+import { useTheme } from '@/hooks';
 
 import '../global.css';
 
 export { ErrorBoundary } from 'expo-router';
 
 export const unstable_settings = {
-  initialRouteName: '(tabs)',
+  initialRouteName: 'index',
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -38,6 +38,12 @@ const RootLayoutNav = memo(function RootLayoutNav({
         />
         <Stack.Screen
           name='profile-settings'
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name='auth'
           options={{
             headerShown: false,
           }}

@@ -1,9 +1,30 @@
 {
-  "common": {
-    "welcome": "Bienvenido"
-  },
   "home": {
     "title": "Pantalla Principal",
     "description": "Esta es la pantalla principal de nuestra aplicación"
+  },
+  "auth": {
+    "signInOrRegister": "Inicia sesión o regístrate",
+    "continueWithEmail": "Continuar con email",
+    "continueWithGoogle": "Continuar con Google",
+    "continueWithApple": "Continuar con Apple",
+    "continueWithFacebook": "Continuar con Facebook",
+    "emailPlaceholder": "Introduce tu email",
+    "continueButton": "Continuar",
+    "verificationMessage": "Inserta el código de verificación que has recibido en tu email",
+    "codePlaceholder": "Código de verificación",
+    "resendCode": "Reenviar código",
+    "registrationForm": "¿Cómo te llamas?",
+    "namePlaceholder": "Introduce tu nombre...",
+    "completeRegistration": "Completar registro",
+    "invalidEmail": "El email introducido no es válido",
+    "invalidCode": "El código introducido no es válido",
+    "nameRequired": "El nombre es obligatorio",
+    "errorGeneric": "Ha ocurrido un error. Inténtalo de nuevo.",
+    "codeResent": "Se ha enviado un nuevo código a tu email",
+    "sending": "Enviando...",
+    "verifying": "Verificando...",
+    "creatingAccount": "Creando cuenta...",
+    "codeResentTitle": "Código reenviado"
   }
 }
