@@ -7,7 +7,13 @@ import { Card, CardHeader, CardTitle, CardContent } from '~/components/ui';
 import { MapComponent } from './maps/MapComponent'; // Asegúrate de que la ruta sea correcta
 import { LocationCardProps } from '~/interfaces';
 
-export function LocationCard({ location }: Readonly<LocationCardProps>) {
+export function LocationCard({
+  latitude,
+  longitude,
+  name,
+  address,
+  cityState,
+}: Readonly<LocationCardProps>) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [textContainerWidth, setTextContainerWidth] = useState(0);
   const [overflowStatus, setOverflowStatus] = useState({
@@ -56,19 +62,19 @@ export function LocationCard({ location }: Readonly<LocationCardProps>) {
                   className='text-base font-bold mb-1'
                   onTextLayout={(e) => handleTextLayout('name', e)}
                 >
-                  {location.name}
+                  {name}
                 </Text>
                 <Text
                   className='text-sm italic text-gray-700 mb-1'
                   onTextLayout={(e) => handleTextLayout('address', e)}
                 >
-                  {location.address}
+                  {address}
                 </Text>
                 <Text
                   className='text-xs text-gray-500'
                   onTextLayout={(e) => handleTextLayout('cityState', e)}
                 >
-                  {location.cityState}
+                  {cityState}
                 </Text>
               </View>
 
@@ -76,19 +82,19 @@ export function LocationCard({ location }: Readonly<LocationCardProps>) {
                 className='text-base font-bold mb-1'
                 numberOfLines={isExpanded ? undefined : 2}
               >
-                {location.name}
+                {name}
               </Text>
               <Text
                 className='text-sm italic text-gray-700 mb-1'
                 numberOfLines={isExpanded ? undefined : 2}
               >
-                {location.address}
+                {address}
               </Text>
               <Text
                 className='text-xs text-gray-500'
                 numberOfLines={isExpanded ? undefined : 2}
               >
-                {location.cityState}
+                {cityState}
               </Text>
 
               {showReadMoreButton && (
@@ -109,8 +115,8 @@ export function LocationCard({ location }: Readonly<LocationCardProps>) {
         <View className='flex-[2] p-4 flex justify-start items-center'>
           <View style={styles.mapSquareContainer}>
             <MapComponent
-              latitude={location.latitude}
-              longitude={location.longitude}
+              latitude={latitude}
+              longitude={longitude}
               latitudeDelta={0.001}
               longitudeDelta={0.001}
               showMarker={true}

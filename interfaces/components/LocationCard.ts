@@ -1,5 +1,7 @@
 export interface LocationCardProps {
-  readonly location: string;
+  readonly latitude: number;
+  readonly longitude: number;
+  readonly name: string;
   readonly address: string;
-  readonly city: string;
+  readonly cityState: string;
 }
