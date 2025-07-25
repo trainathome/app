@@ -141,7 +141,13 @@ export default function ActivityDetailScreen() {
               />
             </View>
             {/* Lugar */}
-            <LocationCard location={mainMapLocation} />
+            <LocationCard
+              latitude={mainMapLocation.latitude}
+              longitude={mainMapLocation.longitude}
+              name={mainMapLocation.name}
+              address={mainMapLocation.address}
+              cityState={mainMapLocation.cityState}
+            />
             {/* Participantes */}
             <ParticipantsCard teams={teams} />
           </View>
