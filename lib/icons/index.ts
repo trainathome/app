@@ -5,6 +5,7 @@ export * from './Info';
 export * from './Layers';
 export * from './LogIn';
 export * from './MapPin';
+export * from './MapPinTitle';
 export * from './Moon';
 export * from './Soccer';
 export * from './Sun';

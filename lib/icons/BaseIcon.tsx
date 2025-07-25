@@ -9,14 +9,23 @@ export function BaseIcon({
   className,
   size = 24,
   color,
+  iconProps,
   ...props
 }: Readonly<BaseIconProps>) {
   const { isDark } = useTheme();
 
-  iconWithClassName(Icon);
+  if (
+    typeof Icon === 'function' &&
+    (Icon as any).$$typeof === Symbol.for('react.memo')
+  ) {
+    iconWithClassName(Icon as LucideIcon);
+  }
 
   return (
-    <View className={cn('flex items-center justify-center', className)}>
+    <View
+      className={cn('flex items-center justify-center', className)}
+      {...props}
+    >
       <Icon
         size={size}
         color={color ?? (isDark ? 'white' : 'black')}

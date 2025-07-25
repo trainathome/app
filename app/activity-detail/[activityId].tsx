@@ -11,10 +11,20 @@ import { SettingsButton } from '../../components/SettingsButton';
 import { ShareButton } from '../../components/ShareButton';
 import { Text } from '../../components/Themed';
 import { Button } from '../../components/ui';
+import { MapComponent } from '../../components/maps/MapComponent';
 
 export default function ActivityDetailScreen() {
   const { activityId } = useLocalSearchParams<{ activityId: string }>();
   const { isDark } = useTheme();
+
+  const mainMapLocation = {
+    latitude: 37.1431055,
+    longitude: -3.6145999,
+    name: 'Estadio Nuevo Los Cármenes',
+    address:
+      'C. Pintor Manuel Maldonado, s/n, Zaidín, 18007 GranadaC. Pintor Manuel Maldonado, s/n, Zaidín, 18007 GranadaC. Pintor Manuel Maldonado, s/n, Zaidín, 18007 GranadaC. Pintor Manuel Maldonado, s/n, Zaidín, 18007 Granada',
+    cityState: 'Granada, Andalucía',
+  };
 
   const teams: Team[] = [
     {
@@ -94,13 +104,18 @@ export default function ActivityDetailScreen() {
                 <SettingsButton onPress={() => {}} />
               </View>
             </View>
-            {/* Mapa */}
+            {/* Mapa de fondo */}
             <View className='bg-gray-500 dark:bg-gray-900 w-full h-full items-center justify-center'>
-              {/* Aquí va el mapa */}
+              <MapComponent
+                latitude={mainMapLocation.latitude}
+                longitude={mainMapLocation.longitude}
+                latitudeDelta={0.002}
+                longitudeDelta={0.002}
+                showMarker={true}
+              />
             </View>
           </View>
 
-          {/* Contenido */}
           <View className='w-full px-4 mt-40 z-20 pb-24'>
             {/* Card principal */}
             <View className='w-full max-w-xl self-center mb-4'>
@@ -127,9 +142,11 @@ export default function ActivityDetailScreen() {
             </View>
             {/* Lugar */}
             <LocationCard
-              location='Pabellón Polideportivo'
-              address='C/ Fernando Gavilán, s/n.'
-              city='Ubrique, Cádiz'
+              latitude={mainMapLocation.latitude}
+              longitude={mainMapLocation.longitude}
+              name={mainMapLocation.name}
+              address={mainMapLocation.address}
+              cityState={mainMapLocation.cityState}
             />
             {/* Participantes */}
             <ParticipantsCard teams={teams} />
