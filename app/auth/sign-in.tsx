@@ -115,7 +115,7 @@ export default function SignInScreen() {
           </View>
 
           {/* SSO */}
-          <View className='space-y-3'>
+          <View className='flex flex-col gap-4'>
             {/* Google */}
             <Button
               onPress={() => handleSSOContinue('google')}
