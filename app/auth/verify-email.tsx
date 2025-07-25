@@ -112,11 +112,21 @@ export default function VerifyEmailScreen() {
                 setCode(numericText);
                 if (codeError) setCodeError('');
               }}
-              keyboardType='numeric'
+              keyboardType='number-pad'
+              returnKeyType='done'
               maxLength={6}
-              autoFocus
-              className={`w-full text-center text-xl tracking-widest ${
-                codeError ? 'border-red-500' : ''
+              style={{
+                textAlign: 'center',
+                fontSize: 20,
+                letterSpacing: 8,
+                color: 'inherit',
+                height: 48,
+                paddingVertical: 12,
+              }}
+              className={`w-full ${
+                codeError
+                  ? 'border-red-500'
+                  : 'border-gray-300 dark:border-gray-600'
               }`}
             />
             {codeError ? (
