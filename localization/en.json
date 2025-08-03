@@ -23,7 +23,9 @@
     "errorGeneric": "An error occurred. Please try again.",
     "codeResent": "A new code has been sent to your email",
     "sending": "Sending...",
+    "checkYourEmail": "Check your email",
     "verifying": "Verifying...",
+    "magicLinkSent": "A magic link has been sent to your email. Click it to log in.",
     "creatingAccount": "Creating account...",
     "codeResentTitle": "Code resent"
   }
