@@ -3,6 +3,7 @@ import { Button, Input } from '@/components/ui';
 import { useLanguage } from '@/hooks/useLanguage';
 import { LogIn } from '@/lib/icons';
 import { useRouter } from 'expo-router';
+import { supabase } from '@/lib/supabaseClient';
 import React, { useState } from 'react';
 import {
   Alert,
@@ -26,13 +27,7 @@ export default function SignInScreen() {
   const [loading, setLoading] = useState(false);
 
   const handleEmailContinue = async () => {
-    // Validar email
-    if (!email.trim()) {
-      setEmailError(t('auth.invalidEmail'));
-      return;
-    }
-
-    if (!validateEmail(email.trim())) {
+    if (!email.trim() || !validateEmail(email.trim())) {
       setEmailError(t('auth.invalidEmail'));
       return;
     }
@@ -40,16 +35,26 @@ export default function SignInScreen() {
     setEmailError('');
     setLoading(true);
 
-    // Simular envío de código de verificación
-    // TODO - cambiar por servicio supabase
-    setTimeout(() => {
+    // Define el redirect URL (deep linking)
+    // Asegúrate de que coincide con la configuración de tu app y con lo que pusiste en External Redirect URLs
+    const redirectUrl = 'myapp://(tabs)'; // Ajusta según tu esquema y ruta
+
+    const { data, error } = await supabase.auth.signInWithOtp({
+      email: email.trim(),
+      options: {
+        shouldCreateUser: false,
+        emailRedirectTo: redirectUrl,
+      },
+    });
+
+    if (error) {
       setLoading(false);
-      // Navegar a pantalla de verificación
-      router.push({
-        pathname: '/auth/verify-email',
-        params: { email: email.trim() },
-      });
-    }, 1000);
+      Alert.alert('Error', error.message);
+      return;
+    }
+
+    setLoading(false);
+    Alert.alert(t('auth.checkYourEmail'), t('auth.magicLinkSent'));
   };
 
   const handleSSOContinue = (provider: 'google' | 'apple' | 'facebook') => {
@@ -100,7 +105,6 @@ export default function SignInScreen() {
 
             <Button
               onPress={handleEmailContinue}
-              disabled={loading}
               className='w-full bg-white border border-gray-300 dark:bg-black rounded-xl h-12'
             >
               <Text className='text-black dark:text-white font-semibold'>
