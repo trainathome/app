@@ -20,9 +20,11 @@
     "invalidEmail": "El email introducido no es válido",
     "invalidCode": "El código introducido no es válido",
     "nameRequired": "El nombre es obligatorio",
+    "checkYourEmail": "Revisa tu email",
     "errorGeneric": "Ha ocurrido un error. Inténtalo de nuevo.",
     "codeResent": "Se ha enviado un nuevo código a tu email",
     "sending": "Enviando...",
+    "magicLinkSent": "Se ha enviado un enlace mágico a tu email. Haz clic en él para iniciar sesión.",
     "verifying": "Verificando...",
     "creatingAccount": "Creando cuenta...",
     "codeResentTitle": "Código reenviado"

@@ -12,6 +12,7 @@ import {
   ScrollView,
   View,
 } from 'react-native';
+import * as Linking from 'expo-linking';
 
 const validateEmail = (email: string): boolean => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -57,8 +58,22 @@ export default function SignInScreen() {
     Alert.alert(t('auth.checkYourEmail'), t('auth.magicLinkSent'));
   };
 
-  const handleSSOContinue = (provider: 'google' | 'apple' | 'facebook') => {
-    Alert.alert('SSO', `Continuar con ${provider} - Por implementar`);
+  const handleSSOContinue = async (provider: 'google') => {
+    const redirectTo = Linking.createURL('/auth/callback');
+
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider,
+      options: {
+        redirectTo,
+      },
+    });
+
+    if (error) {
+      Alert.alert('Error', error.message);
+    } else {
+      // Se abrirá automáticamente el navegador con la URL de Supabase
+      // y volverá a la app gracias a deep linking
+    }
   };
 
   return (
